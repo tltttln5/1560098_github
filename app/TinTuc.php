@@ -12,6 +12,6 @@ class TinTuc extends Model
     	return $this->belongsTo('App\LoaiTin','idLoaiTin', 'id');
     }
     public function comment(){
-    	return $this->hasMany('App\Comment', 'idComment', 'id');
+    	return $this->hasMany('App\Comment', 'idTinTuc', 'id');
     }
 }
