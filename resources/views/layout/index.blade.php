@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Làng Thủy Sinh Việt </title>
+    <title> Làng Thủy Sinh Việt | @yield('title') </title>
+    <base href="{{asset('')}}" > 
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
