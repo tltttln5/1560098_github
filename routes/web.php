@@ -99,6 +99,9 @@ Route::post('dangnhap', 'PagesController@postDangnhap');
 Route::get('dangxuat', 'PagesController@getDangxuat');
 Route::post('comment/{id}', 'CommentController@postComment'); 
 
+Route::get('nguoidung', 'PagesController@getNguoidung');
+Route::post('nguoidung', 'PagesController@postNguoidung');
+
 
 
 

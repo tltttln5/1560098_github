@@ -40,7 +40,7 @@
                     @else
 
                         <li>
-                            <a><span class ="glyphicon glyphicon-user"></span>{{Auth::user()->name }}
+                            <a href="nguoidung" ><span class ="glyphicon glyphicon-user"></span>{{Auth::user()->name }}
                             </a>
                         </li>
 
