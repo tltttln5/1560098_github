@@ -10,18 +10,18 @@
             <!-- Blog Post -->
 
             <!-- Title -->
-            <h1>Trào lưu nuôi tép kiểng</h1>
+            <h1>{{$tintuc->TieuDe}}</h1>
 
             <!-- Author -->
             <p class="lead">
-                by <a href="#">Tank60x50x50</a>
+                by <a href="#">Tank</a>
             </p>
 
             <!-- Preview Image -->
-            <img class="img-responsive" src="upload/shrimp/YellowShrimp.jpg" alt="">
+            <img class="img-responsive" src="upload/tintuc/{{$tintuc->Hinh}}" alt="">
 
             <!-- Date/Time -->
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on : {{$tintuc->created_at}}</p>
             <hr>
 
             <!-- Post Content Viết NỘI DUNG TRONG TRANG TIN TỨC -->
@@ -34,10 +34,11 @@
             <!-- Blog Comments -->
 
             <!-- Comments Form -->
+            @if(isset($nguoidung))
             <div class="well">
                 <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
                 <form role="form">
-                    <div class="form-group">
+                    <div acction="comment/{{$tintuc->id}}" class="form-group">
                         <textarea class="form-control" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Gửi</button>
@@ -45,6 +46,7 @@
             </div>
 
             <hr>
+            @endif	
 
             <!-- Posted Comments -->
 
@@ -57,8 +59,8 @@
                 <div class="media-body">
                     <h4 class="media-heading">{{$cm->user->name}}
                         <small>{{$cm->created_at}}</small>
-                    }
-                    }
+                    
+                    
                     </h4>
                     {{$cm->NoiDung}}
                 </div>

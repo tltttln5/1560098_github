@@ -11,6 +11,17 @@
                 <div class="panel panel-default">
 				  	<div class="panel-heading">Đăng nhập</div>
 				  	<div class="panel-body">
+				  		@if(count($errors)>0)
+				  			<div class="alert alert-danger"> 
+				  			@foreach($errors->all() as $err)
+				  				{{$err}}<br>
+				  			@endforeach
+				  			</div>
+				  		@endif
+				  		@if(session('thongbao'))
+				  			<div class="alert alert-danger">
+				  				{{session('thongbao')}}
+				  		@endif
 				    	<form action="dangnhap" method="post">
 				    		<input type="hidden" name="_token" value="{{csrf_token()}}">
 							<div>
@@ -24,7 +35,7 @@
 							  	<input type="password" class="form-control" name="password">
 							</div>
 							<br>
-							<button type="button" class="btn btn-default">Đăng nhập
+							<button type="submit" class="btn btn-default">Đăng nhập
 							</button>
 				    	</form>
 				  	</div>

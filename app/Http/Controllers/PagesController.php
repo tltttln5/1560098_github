@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\TheLoai;
@@ -18,6 +18,8 @@ class PagesController extends Controller
     	$slide = Slide::all();
     	view()->share('theloai', $theloai);
     	view()->share('slide',$slide);
+        
+       
     }
     function trangchu()
     {
@@ -49,7 +51,31 @@ class PagesController extends Controller
     }
     function postDangnhap(Request $request)
     {
-        echo $request->email."<br>";
+        $this->validate($request, [
+            'email'=>'required',
+            'password'=>'required|min:3|max:32'
+        ],[
+            'email.required'=>'Bạn chưa nhập email',
+            'password.required'=>'Bạn chưa nhập password',
+            'password.min'=>'password không được nhỏ hơn 3 ký tự',
+            'password.max'=>'password không lớn hơn 100 ký tự'
+        ]);
+        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password]))
+
+        {
+            return redirect('trangchu');
+        }
+        else
+        {
+            return redirect('dangnhap')->with('thongbao', 'Đăng nhập thất bại!');
+        }
+        
+    }
+    function getDangXuat()
+    {
+        Auth::logout();
+        return redirect('trangchu');
+
     }
 }   
 
