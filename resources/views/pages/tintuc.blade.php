@@ -34,14 +34,22 @@
             <!-- Blog Comments -->
 
             <!-- Comments Form -->
-            @if(isset($nguoidung))
+            @if(Auth::user())
             <div class="well">
-                <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
-                <form role="form">
-                    <div acction="comment/{{$tintuc->id}}" class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Gửi</button>
+                @if(session('thongbao'))    
+                    {{session('thongbao')}}
+                @endif
+                <h4>Viết bình luận  ...<span class="glyphicon glyphicon-pencil"></span></h4>
+                
+                    
+                <form action="comment/{{$tintuc->id}}" method="post" class="form-group" role="form">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}" />
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="NoiDung" rows="3"></textarea>
+                        </div>
+            
+                        <button type="submit" class="btn btn-primary">Gửi</button>
                 </form>
             </div>
 
