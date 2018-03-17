@@ -1,0 +1,26 @@
+#content{
+	height: 500px;
+	width: 800px;
+	border: 1px solid black;
+	background: yellow;
+	margin: auto;
+	text-align: center;
+}
+#header{
+	height: 100px;
+	width: 800px;
+	border: 1px solid black;
+	background: red;
+	margin: auto;
+	text-align: center;
+
+}
+#footer{
+	height: 80px;
+	width: 800px;
+	border: 1px solid black;
+	background: blue;
+	margin: auto;
+	text-align: center;
+
+}
