@@ -33,7 +33,7 @@
                     @endif
 				    	<form action="nguoidung" method="POST">
 				    		
-				    		<input type="hidden" name="_token" value="{{csrf_token()}}" />
+				    		<input type="hidden" name="_token" value="{{csrf_token()}}"; />
 				    		<dir></dir>v>
 				    			<label>Họ tên</label>
 							  	<input type="text" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1" value="{{$nguoidung->name}}" >

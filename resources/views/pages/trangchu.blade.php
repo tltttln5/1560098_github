@@ -1,3 +1,6 @@
+@section('title')
+    Trang Chủ
+@endsection
 @extends('layout.index')
 @section('content')
 

@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Laravel Tin Tức</a>
+                <a class="navbar-brand" href="trangchu">Trang Chủ</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -22,11 +22,12 @@
                     </li>
                 </ul>
 
-                <form class="navbar-form navbar-left" role="search">
+                <form action="timkiem" method="get" class="navbar-form navbar-left" role="search">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}";>
+                        <input type="text" name="tukhoa" class="form-control" placeholder="Tìm Kiếm">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default">Tìm</button>
                 </form>
 
                 <ul class="nav navbar-nav pull-right">

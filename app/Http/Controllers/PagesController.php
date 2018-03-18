@@ -35,6 +35,10 @@ class PagesController extends Controller
     	
     	return view('pages.lienhe');
     }
+    function gioithieu()
+    {
+        return view('pages.gioithieu');
+    }
     function loaitin($id)
     {
         $loaitin = LoaiTin::find($id);
@@ -101,7 +105,7 @@ class PagesController extends Controller
                 
             ]);
         
-        $user =Auth::user();
+        $user = Auth::user();
         $user->name = $request->name;     
         
         if ($request->changePassword == "on")
@@ -164,6 +168,19 @@ class PagesController extends Controller
        
         $user->save();
         return redirect('dangnhap')->with('thongbao','Đăng ký tài khoản thành công!');
+    }
+    function Timkiem(Request $request)
+    {   
+        $tukhoa = $request->get('tukhoa');
+        // $tintuc = TinTuc::where('TieuDe','like',"%$tukhoa%")->orWhere('TomTat','like',"%$tukhoa%")->orWhere('TomTat','like',"%$tukhoa%")->take(30)->paginate(5);
+        $tintuc = TinTuc::where('TieuDe','like','%'.$tukhoa.'%')->orWhere('TomTat','like','%'.$tukhoa.'%')->orWhere('NoiDung','like','%'.$tukhoa.'%')->paginate(5);
+
+        return view('pages.timkiem',['tintuc' => $tintuc, 'tukhoa' => $tukhoa]);
+        // $tukhoa = $request->tukhoa;
+        // $tukhoa=$request->get('tukhoa');
+        // $tintuc = TinTuc::where('TieuDe','like','%'.$tukhoa.'%')->orWhere('TomTat','like','%'.$tukhoa.'%')->orWhere('NoiDung','like','%'.$tukhoa.'%')->paginate(5);
+        // return view('pages.timkiem',['tukhoa'=>$tukhoa,'tintuc'=>$tintuc]);
+
     }
 }   
 
